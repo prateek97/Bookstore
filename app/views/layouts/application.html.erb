@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ruby Bookshop</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <div class="container">
+<nav class="navbar navbar-light bg-faded">    
+     
+      
+
+        <a class="navbar-brand" href="/">Pyramid</a>
+        <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item <%= 'active' if current_page?(menu_url) %>">
+            <%= link_to 'MENU', menu_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(contact_us_url) %>">
+            <%= link_to 'CONTACT US', contact_us_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(food_items_url) %>">
+            <%= link_to 'admin', food_items_url, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</head>
+
+<body>
+<div class="container">
+  <% if flash[:error] %>
+      <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
+  <% if flash[:success] %>
+      <div class="alert alert-info"><%= flash[:success] %></div>
+  <% end %>
+  <%= yield %>
+
+  <footer class="footer">
+    <p align="right">Prateek Arora</p>
+  </footer>
+</div>
+</body>
+</html>

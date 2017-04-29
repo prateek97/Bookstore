@@ -1,0 +1,33 @@
+<div>
+<h1 align="center">Thank you !</h1>
+
+Thanks for using our service, <%= customer_info.name %><br>
+Your order on <%= customer_info.created_at.strftime("%A, %B %d, %H:%M") %><br>
+<br>
+<table class="table table-striped">
+  <tr>
+    <td><strong><%= food_info.name %></strong></td>
+    <td><%= number_to_currency(food_info.price, locale: :vn) %></td>
+  </tr>
+  <tr>
+    <td>Delivery price</td>
+    <td>20.000 </td>
+  </tr>
+  <tr>
+    <td>Sub Total:</td>
+    <td><%= number_to_currency(calculate_total[:sub_total], locale: :vn) %> </td>
+  <tr>
+    <td>Discount:</td>
+    <td><%= calculate_total[:discount_percent ]%>%</td>
+  </tr>
+  <tr>
+    <td>Total:</td>
+    <td><strong><%= number_to_currency(calculate_total[:total], locale: :vn) %></strong></td>
+  </tr>
+
+</table>
+<br>
+We will call <%= customer_info.phone %> within 1 minute to verify the order. <br>
+Your order will be delivered within 3 DAYS to <%= customer_info.address %>
+</div>
+
